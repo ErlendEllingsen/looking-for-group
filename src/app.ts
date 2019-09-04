@@ -16,6 +16,7 @@ const MongoStore = mongo(session);
 // Controllers (route handlers)
 import * as homeController from "./controllers/home";
 import * as userController from "./controllers/user";
+import * as lfgController from "./controllers/lfg";
 import * as apiController from "./controllers/api";
 import * as contactController from "./controllers/contact";
 
@@ -59,6 +60,19 @@ app.use(flash());
 app.use(lusca.xframe("SAMEORIGIN"));
 app.use(lusca.xssProtection(true));
 app.use((req, res, next) => {
+
+    enum Classes {
+        warrior='warrior',
+        paladin='paladin',
+        mage='mage',
+        druid='druid',
+        shaman='shaman',
+        warlock='warlock',
+        rogue='rogue',
+        priest='priest',
+    }
+
+    res.locals.classList = Classes;
     res.locals.user = req.user;
     next();
 });
@@ -85,6 +99,7 @@ app.use(
  * Primary app routes.
  */
 app.get("/", homeController.index);
+app.get("/lfg", lfgController.index);
 app.get("/login", userController.getLogin);
 app.post("/login", userController.postLogin);
 app.get("/logout", userController.logout);

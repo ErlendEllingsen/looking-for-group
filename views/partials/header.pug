@@ -2,19 +2,25 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
   .container
     a.navbar-brand(href='/')
       i.fa.fa-cube
-      | Classic LFG
+      | Looking For Warcraft
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='.navbar-collapse')
       span.navbar-toggler-icon
 
     .collapse.navbar-collapse
       .dropdown-divider
       ul.nav.navbar-nav.mr-auto
-        li.nav-item(class=(title === 'Home') ? 'active' : undefined)
-          a.nav-link(href='/') Home
-        li.nav-item(class=(title === 'API Examples') ? 'active' : undefined)
-          a.nav-link(href='/api') API Examples
-        li.nav-item(class=(title === 'Contact') ? 'active' : undefined)
-          a.nav-link(href='/contact') Contact
+        if user
+            li.nav-item(class=(title === 'LFG') ? 'active' : undefined)
+              a.nav-link(href='/lfg') Browse Classic LFG
+            li.nav-item(class=(title === 'account') ? 'active' : undefined)
+              a.nav-link(href='/account') Edit characters
+        else
+          li.nav-item(class=(title === 'Home') ? 'active' : undefined)
+            a.nav-link(href='/') Home
+          li.nav-item(class=(title === 'API Examples') ? 'active' : undefined)
+            a.nav-link(href='/api') API Examples
+          li.nav-item(class=(title === 'Contact') ? 'active' : undefined)
+            a.nav-link(href='/contact') Contact
       ul.nav.navbar-nav
         if !user
           li.nav-item(class=(title === 'Login') ? 'active' : undefined)
@@ -24,15 +30,14 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
         else
           li.nav-item.dropdown(class=(title === 'Account Management') ? 'active' : undefined)
             a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown')
-              if user.profile.picture
-                img(src=user.profile.picture, alt=(user.profile.name || user.email || user.id))
-              else
-                img(src=user.gravatar(60), alt=(user.profile.name || user.email || user.id))
-              span= user.profile.name || user.email || user.id
+              img(src=user.classIcon(), alt=(user.email || user.id))
+              span=user.email || user.id
               i.caret
             ul.dropdown-menu
               li.nav-item
                 a.nav-link(href='/account') My Account
+              li.nav-item
+                a.nav-link(href='/account') Ignore List
               li.dropdown-divider
               li.nav-item
                 a.nav-link(href='/logout') Logout

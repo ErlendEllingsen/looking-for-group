@@ -11,13 +11,7 @@ export type UserDocument = mongoose.Document & {
     facebook: string;
     tokens: AuthToken[];
 
-    profile: {
-        name: string;
-        gender: string;
-        location: string;
-        website: string;
-        picture: string;
-    };
+    characters: GameCharacter[];
 
     comparePassword: comparePasswordFunction;
     gravatar: (size: number) => string;
@@ -30,8 +24,17 @@ export interface AuthToken {
     kind: string;
 }
 
+export interface GameCharacter {
+    realm: string;
+    name: string;
+    faction: string;
+    className: string;
+    role: string;
+    level: number;
+}
+
 const userSchema = new mongoose.Schema({
-    email: { type: String, unique: true },
+    email: { type: String, unique: true, },
     password: String,
     passwordResetToken: String,
     passwordResetExpires: Date,
@@ -41,13 +44,16 @@ const userSchema = new mongoose.Schema({
     google: String,
     tokens: Array,
 
-    profile: {
+    primaryCharacter: String, // points to name in characters array
+    characters: [{
+        realm: { type: String, unique: false, index: true},
         name: String,
-        gender: String,
-        location: String,
-        website: String,
-        picture: String
-    }
+        faction: { type: String, unique: false, index: true},
+        className: { type: String, unique: false, index: true},
+        role: { type: String, unique: false, index: true},
+        level: { type: Number, unique: false, index: true}
+    }],
+
 }, { timestamps: true });
 
 /**
@@ -83,6 +89,18 @@ userSchema.methods.gravatar = function (size: number = 200) {
     }
     const md5 = crypto.createHash("md5").update(this.email).digest("hex");
     return `https://gravatar.com/avatar/${md5}?s=${size}&d=retro`;
+};
+
+userSchema.methods.getPrimaryCharacter = function() {
+    return this.characters.find((el: any) => {
+        return el.name === this.primaryCharacter;
+    });
+};
+
+userSchema.methods.classIcon = function() {
+    const char = this.getPrimaryCharacter(); 
+    const classFile = (char ? char.className : 'egg');
+    return `/images/profileicons/${classFile}.png`;
 };
 
 export const User = mongoose.model<UserDocument>("User", userSchema);

@@ -1,5 +1,6 @@
 extends ../layout
 
+
 block content
   .page-header
     h3 Sign up
@@ -19,7 +20,16 @@ block content
       .col-sm-7
         input.form-control(type='password', name='confirmPassword', id='confirmPassword', placeholder='Confirm Password', required)
     .form-group.row.justify-content-md-center
+      label.col-sm-3.col-form-label.text-right.font-weight-bold(for='verification') Verification
+      .col-sm-7
+        <div class="g-recaptcha" data-sitekey="6LeCmLYUAAAAAAFqK-I6k-M4PZUgyIe_I9mHZmuV" data-callback="onloadCallback"></div>
+    .form-group.row.justify-content-md-center
       .offset-sm-3.col-sm-7
-        button.btn.btn-success(type='submit')
+        button.btn.btn-success(type='submit',disabled="disabled",id='signupBtn')
           i.fa.fa-user-plus
           | Signup
+
+    input.captcha-token(type='hidden',name='token')
+
+  script(src='/js/signup.js')
+  script(src='https://www.google.com/recaptcha/api.js',async,defer)

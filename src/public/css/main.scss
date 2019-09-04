@@ -5,6 +5,10 @@
 
 @import "themes/default/default";
 
+.className {
+  text-transform: capitalize;
+}
+
 // Scaffolding
 // -------------------------
 
@@ -23,7 +27,8 @@ footer {
   bottom: 0;
   width: 100%;
 
-  p, ul {
+  p,
+  ul {
     margin-bottom: 0;
   }
 }

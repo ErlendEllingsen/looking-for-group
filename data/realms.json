@@ -1,0 +1,814 @@
+{
+    "data": {
+        "GameVersions": [{
+            "name": "World of Warcraft",
+            "slug": "world-of-warcraft",
+            "key": "mainline",
+            "__typename": "GameVersion"
+        }, {
+            "name": "World of Warcraft Classic",
+            "slug": "world-of-warcraft-classic",
+            "key": "classic",
+            "__typename": "GameVersion"
+        }],
+        "Regions": [{
+            "name": "Americas & Oceania",
+            "slug": "americas-oceania",
+            "key": "us",
+            "__typename": "Region"
+        }, {
+            "name": "Europe",
+            "slug": "europe",
+            "key": "eu",
+            "__typename": "Region"
+        }, {
+            "name": "Korea",
+            "slug": "korea",
+            "key": "kr",
+            "__typename": "Region"
+        }, {
+            "name": "Taiwan",
+            "slug": "taiwan",
+            "key": "tw",
+            "__typename": "Region"
+        }],
+        "Realms": [{
+            "name": "Amnennar",
+            "slug": "amnennar",
+            "locale": "fr-FR",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "3",
+                "name": "High",
+                "slug": "high",
+                "enum": "HIGH",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Ashbringer",
+            "slug": "ashbringer",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Auberdine",
+            "slug": "auberdine",
+            "locale": "fr-FR",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "1",
+                "name": "PvE",
+                "slug": "normal",
+                "enum": "NORMAL",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "3",
+                "name": "High",
+                "slug": "high",
+                "enum": "HIGH",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Bloodfang",
+            "slug": "bloodfang",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "2",
+                "name": "Medium",
+                "slug": "medium",
+                "enum": "MEDIUM",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Chromie",
+            "slug": "chromie",
+            "locale": "ru-RU",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "1",
+                "name": "PvE",
+                "slug": "normal",
+                "enum": "NORMAL",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "3",
+                "name": "High",
+                "slug": "high",
+                "enum": "HIGH",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Dragon's Call",
+            "slug": "dragons-call",
+            "locale": "de-DE",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Dreadmist",
+            "slug": "dreadmist",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "3",
+                "name": "High",
+                "slug": "high",
+                "enum": "HIGH",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Everlook",
+            "slug": "everlook",
+            "locale": "de-DE",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "1",
+                "name": "PvE",
+                "slug": "normal",
+                "enum": "NORMAL",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Finkle",
+            "slug": "finkle",
+            "locale": "fr-FR",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "2",
+                "name": "Medium",
+                "slug": "medium",
+                "enum": "MEDIUM",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Firemaw",
+            "slug": "firemaw",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Flamegor",
+            "slug": "flamegor",
+            "locale": "ru-RU",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Flamelash",
+            "slug": "flamelash",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Gandling",
+            "slug": "gandling",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Gehennas",
+            "slug": "gehennas",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Golemagg",
+            "slug": "golemagg",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Hydraxian Waterlords",
+            "slug": "hydraxian-waterlords",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "3",
+                "name": "RP",
+                "slug": "rp",
+                "enum": "RP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "2",
+                "name": "Medium",
+                "slug": "medium",
+                "enum": "MEDIUM",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Judgement",
+            "slug": "judgement",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "1",
+                "name": "Low",
+                "slug": "low",
+                "enum": "LOW",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Lakeshire",
+            "slug": "lakeshire",
+            "locale": "de-DE",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "1",
+                "name": "PvE",
+                "slug": "normal",
+                "enum": "NORMAL",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "3",
+                "name": "High",
+                "slug": "high",
+                "enum": "HIGH",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Lucifron",
+            "slug": "lucifron",
+            "locale": "de-DE",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Mirage Raceway",
+            "slug": "mirage-raceway",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "1",
+                "name": "PvE",
+                "slug": "normal",
+                "enum": "NORMAL",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Mograine",
+            "slug": "mograine",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Nethergarde Keep",
+            "slug": "nethergarde-keep",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "1",
+                "name": "PvE",
+                "slug": "normal",
+                "enum": "NORMAL",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "3",
+                "name": "High",
+                "slug": "high",
+                "enum": "HIGH",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Noggenfogger",
+            "slug": "noggenfogger",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Patchwerk",
+            "slug": "patchwerk",
+            "locale": "de-DE",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Pyrewood Village",
+            "slug": "pyrewood-village",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "1",
+                "name": "PvE",
+                "slug": "normal",
+                "enum": "NORMAL",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Razorfen",
+            "slug": "razorfen",
+            "locale": "de-DE",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "1",
+                "name": "PvE",
+                "slug": "normal",
+                "enum": "NORMAL",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Razorgore",
+            "slug": "razorgore",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Rhok'delar",
+            "slug": "rhokdelar",
+            "locale": "ru-RU",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Shazzrah",
+            "slug": "shazzrah",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Skullflame",
+            "slug": "skullflame",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "3",
+                "name": "High",
+                "slug": "high",
+                "enum": "HIGH",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Stonespine",
+            "slug": "stonespine",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Sulfuron",
+            "slug": "sulfuron",
+            "locale": "fr-FR",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Ten Storms",
+            "slug": "ten-storms",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "3",
+                "name": "High",
+                "slug": "high",
+                "enum": "HIGH",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Transcendence",
+            "slug": "transcendence",
+            "locale": "de-DE",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "3",
+                "name": "High",
+                "slug": "high",
+                "enum": "HIGH",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Venoxis",
+            "slug": "venoxis",
+            "locale": "de-DE",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Wyrmthalak",
+            "slug": "wyrmthalak",
+            "locale": "ru-RU",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "2",
+                "name": "PvP",
+                "slug": "pvp",
+                "enum": "PVP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }, {
+            "name": "Zandalar Tribe",
+            "slug": "zandalar-tribe",
+            "locale": "en-GB",
+            "timezone": "CEST",
+            "online": true,
+            "type": {
+                "id": "4",
+                "name": "PvP RP",
+                "slug": "pvprp",
+                "enum": "PVP_RP",
+                "__typename": "RealmTypeEnum"
+            },
+            "population": {
+                "id": "4",
+                "name": "Full",
+                "slug": "full",
+                "enum": "FULL",
+                "__typename": "RealmPopulationEnum"
+            },
+            "__typename": "Realm"
+        }]
+    }
+}

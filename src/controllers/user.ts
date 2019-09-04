@@ -1,3 +1,6 @@
+import request from 'request';
+import querystring from 'querystring';
+import FormData from 'form-data';
 import async from "async";
 import crypto from "crypto";
 import nodemailer from "nodemailer";
@@ -8,6 +11,7 @@ import { IVerifyOptions } from "passport-local";
 import { WriteError } from "mongodb";
 import { check, sanitize, validationResult } from "express-validator";
 import "../config/passport";
+import { exit } from 'shelljs';
 
 /**
  * GET /login
@@ -28,7 +32,7 @@ export const getLogin = (req: Request, res: Response) => {
  */
 export const postLogin = (req: Request, res: Response, next: NextFunction) => {
     check("email", "Email is not valid").isEmail();
-    check("password", "Password cannot be blank").isLength({min: 1});
+    check("password", "Password cannot be blank").isLength({ min: 1 });
     // eslint-disable-next-line @typescript-eslint/camelcase
     sanitize("email").normalizeEmail({ gmail_remove_dots: false });
 
@@ -42,7 +46,7 @@ export const postLogin = (req: Request, res: Response, next: NextFunction) => {
     passport.authenticate("local", (err: Error, user: UserDocument, info: IVerifyOptions) => {
         if (err) { return next(err); }
         if (!user) {
-            req.flash("errors", {msg: info.message});
+            req.flash("errors", { msg: info.message });
             return res.redirect("/login");
         }
         req.logIn(user, (err) => {
@@ -79,17 +83,52 @@ export const getSignup = (req: Request, res: Response) => {
  * POST /signup
  * Create a new local account.
  */
-export const postSignup = (req: Request, res: Response, next: NextFunction) => {
+
+async function validateCaptcha(token: string, ip: string) {
+    return new Promise((resolve, reject) => {
+        // Validate gcaptcha token
+        var form = {
+            secret: process.env.RECAPTCHA_KEY,
+            response: token,
+            remoteip: ip,
+        };
+
+        var formData = querystring.stringify(form);
+        var contentLength = formData.length;
+
+        request({
+            headers: {
+                'Content-Length': contentLength,
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            uri: 'https://www.google.com/recaptcha/api/siteverify',
+            body: formData,
+            method: 'POST'
+        }, function (err, res, body) {
+            const bod = JSON.parse(body);
+            return (bod.success ? resolve(true) : resolve(false));
+        });
+    });
+}
+export const postSignup = async (req: Request, res: Response, next: NextFunction) => {
     check("email", "Email is not valid").isEmail();
     check("password", "Password must be at least 4 characters long").isLength({ min: 4 });
     check("confirmPassword", "Passwords do not match").equals(req.body.password);
+    check("token", "Captcha must be filled").not().isEmpty();
     // eslint-disable-next-line @typescript-eslint/camelcase
     sanitize("email").normalizeEmail({ gmail_remove_dots: false });
 
+    // Validate inputs
     const errors = validationResult(req);
-
     if (!errors.isEmpty()) {
         req.flash("errors", errors.array());
+        return res.redirect("/signup");
+    }
+
+    // Validate gcaptcha token
+    const captchaRes = await validateCaptcha(req.body.token, req.headers['x-forwarded-for'] as string || req.connection.remoteAddress);
+    if (!captchaRes) {
+        req.flash("errors", { msg: "Captcha validation failed." });
         return res.redirect("/signup");
     }
 
@@ -114,6 +153,8 @@ export const postSignup = (req: Request, res: Response, next: NextFunction) => {
             });
         });
     });
+
+   
 };
 
 /**
@@ -145,10 +186,15 @@ export const postUpdateProfile = (req: Request, res: Response, next: NextFunctio
     User.findById(req.user.id, (err, user: UserDocument) => {
         if (err) { return next(err); }
         user.email = req.body.email || "";
-        user.profile.name = req.body.name || "";
-        user.profile.gender = req.body.gender || "";
-        user.profile.location = req.body.location || "";
-        user.profile.website = req.body.website || "";
+        // Update for char array
+        // user.profile.name = req.body.name || "";
+        // user.profile.gender = req.body.gender || "";
+        // user.profile.faction = req.body.faction || "";
+        // user.profile.level = req.body.level || 1;
+        // user.profile.role = req.body.role || "";
+        // user.profile.className = req.body.className || "";
+        // user.profile.location = req.body.location || "";
+        // user.profile.website = req.body.website || "";
         user.save((err: WriteError) => {
             if (err) {
                 if (err.code === 11000) {
@@ -290,7 +336,7 @@ export const postReset = (req: Request, res: Response, next: NextFunction) => {
             });
             const mailOptions = {
                 to: user.email,
-                from: "express-ts@starter.com",
+                from: "classiclfg@eed.cloud",
                 subject: "Your password has been changed",
                 text: `Hello,\n\nThis is a confirmation that the password for your account ${user.email} has just been changed.\n`
             };
