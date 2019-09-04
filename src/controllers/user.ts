@@ -210,6 +210,26 @@ export const postUpdateProfile = (req: Request, res: Response, next: NextFunctio
 };
 
 /**
+ * GET /account/character/add
+ * Add new account
+ */
+export const getAddAccount = (req: Request, res: Response) => {
+    res.render("account/character/add", {
+        title: "Add Character"
+    });
+};
+
+/**
+ * POST /account/character/add
+ * Add new account
+ */
+export const postAddAccount = (req: Request, res: Response) => {
+    res.render("account/character/add", {
+        title: "Add Character"
+    });
+};
+
+/**
  * POST /account/password
  * Update current password.
  */

@@ -20,6 +20,8 @@ html {
 body {
   padding-top: 80px;
   margin-bottom: 75px;
+  background-color: #141414;
+  color: white;
 }
 
 footer {
@@ -70,4 +72,17 @@ textarea {
 
 .fa {
   margin-right: 6px;
+}
+
+@font-face {
+  font-family: wowFont;
+  src: url(../fonts/LifeCraft_Font.ttf);
+}
+
+.wowFont {
+  vertical-align: middle;
+  font-family: wowFont;
+  font-size: 30px;
+  line-height: 30px;
+  color: #141414;
 }

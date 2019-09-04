@@ -72,7 +72,49 @@ app.use((req, res, next) => {
         priest='priest',
     }
 
+    const realms = [
+        {id: 0, name: 'Amnennar'},
+        {id: 1, name: 'Ashbringer'},
+        {id: 2, name: 'Auberdine'},
+        {id: 3, name: 'Bloodfang'},
+        {id: 4, name: 'Chromie'},
+        {id: 5, name: 'Dragon\'s Call'},
+        {id: 6, name: 'Dreadmist'},
+        {id: 7, name: 'Everlook'},
+        {id: 8, name: 'Finkle'},
+        {id: 9, name: 'Firemaw'},
+        {id: 10, name: 'Flamegor'},
+        {id: 11, name: 'Flamelash'},
+        {id: 12, name: 'Gandling'},
+        {id: 13, name: 'Gehennas'},
+        {id: 14, name: 'Golemagg'},
+        {id: 15, name: 'Hydraxian Waterlords'},
+        {id: 16, name: 'Judgement'},
+        {id: 17, name: 'Lakeshire'},
+        {id: 18, name: 'Lucifron'},
+        {id: 19, name: 'Mirage Raceway'},
+        {id: 20, name: 'Mograine'},
+        {id: 21, name: 'Nethergarde Keep'},
+        {id: 22, name: 'Noggenfogger'},
+        {id: 23, name: 'Patchwerk'},
+        {id: 24, name: 'Pyrewood Village'},
+        {id: 25, name: 'Razorfen'},
+        {id: 26, name: 'Razorgore'},
+        {id: 27, name: 'Rhok\'delar'},
+        {id: 28, name: 'Shazzrah'},
+        {id: 29, name: 'Skullflame'},
+        {id: 30, name: 'Stonespine'},
+        {id: 31, name: 'Sulfuron'},
+        {id: 32, name: 'Ten Storms'},
+        {id: 33, name: 'Transcendence'},
+        {id: 34, name: 'Venoxis'},
+        {id: 35, name: 'Wyrmthalak'},
+        {id: 36, name: 'Zandalar Tribe'},
+    ];
+
     res.locals.classList = Classes;
+    res.locals.realms = realms;
+
     res.locals.user = req.user;
     next();
 });
@@ -113,6 +155,8 @@ app.get("/contact", contactController.getContact);
 app.post("/contact", contactController.postContact);
 app.get("/account", passportConfig.isAuthenticated, userController.getAccount);
 app.post("/account/profile", passportConfig.isAuthenticated, userController.postUpdateProfile);
+app.get("/account/character/add", passportConfig.isAuthenticated, userController.getAddAccount);
+app.post("/account/character/add", passportConfig.isAuthenticated, userController.postAddAccount);
 app.post("/account/password", passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post("/account/delete", passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get("/account/unlink/:provider", passportConfig.isAuthenticated, userController.getOauthUnlink);

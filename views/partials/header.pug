@@ -1,8 +1,8 @@
 nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
   .container
     a.navbar-brand(href='/')
-      i.fa.fa-cube
-      | Looking For Warcraft
+      img(src="images/fishbone.svg", alt="Looking for Warcraft Icon", width=40, height=40)
+      span.wowFont  LFW
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='.navbar-collapse')
       span.navbar-toggler-icon
 
@@ -12,7 +12,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
         if user
             li.nav-item(class=(title === 'LFG') ? 'active' : undefined)
               a.nav-link(href='/lfg') Browse Classic LFG
-            li.nav-item(class=(title === 'account') ? 'active' : undefined)
+            li.nav-item(class=(title === 'Account Management') ? 'active' : undefined)
               a.nav-link(href='/account') Edit characters
         else
           li.nav-item(class=(title === 'Home') ? 'active' : undefined)
